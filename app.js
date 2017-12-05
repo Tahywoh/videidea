@@ -105,13 +105,9 @@ app.use('/users', users);
 
 // //Static folder
 
-app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname));
+app.use('/public', express.static('./public'));
 
-//Response to non-existing route
-
-app.get('*', function(req, res) {
-    res.render('err');
-});
 
 app.listen(port, () => {
     console.log(`Your app is running on port ${port}`);
